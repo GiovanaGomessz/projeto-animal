@@ -1,47 +1,22 @@
 from animal import *
 from menu_cao import *
+from functions import *
 
 caes = []
 personas = []
 
-def criar_cao ():
-    nome = input("Nome do cao: ")
-    tamanho = input("Tamanho do cão: ")
-    raca = input("Qual a raça do cão?: ")
-    idade= input("Idade do cão: ")
-    cor= input("Cor do cão: ")
-    cachorito = Cachorro(nome, tamanho, raca, idade, cor)
-    print(f"Seu cachorro {nome}, está cadastrado! \n")
-    caes.append(cachorito)
+ayca = Cachorro ("Ayca", "60", "Chowchow", "8", "Marrom")
+caes.append(ayca)
 
+luke = Cachorro ("Luke", "57", "labrador", "5", "Branco")
+caes.append(luke)
 
-def criar_pessoa ():
-    nome = input("Nome da pessoa: ")
-    idade =input("Qual sua idade?: ")
-    cor=input("Qual sua cor?: ")
-    nacionalidade=input("Qual sua nacionalidade?: ")
-    idioma=input("Qual seu idioma?: ")
-    pessoa = Humano (nome, idade, cor, nacionalidade, idioma)
-    print(f"{nome} você já está cadastrado(a)! \n")
-    personas.append(pessoa)
+gii = Humano ("Gii", "15", "parda", "brasileira", "1.64")
+personas.append(gii)
 
-def buscar_cao(nome):
-    for i in caes:
-        if i.nome == nome:
-            print("\nCão encontrado!🐶")
-            # mostrar_informacoes()
-            return i 
-    else:
-        print("Cão não encontrado😿""\n")
-        return False
+duda = Humano ("Duda", "17", "parda", "brasileira", "1.61")
+personas.append(duda)
 
-
-def buscar_humano(nome):
-    for i in personas:
-        if i.nome == nome:
-            return i 
-    else:
-        return False
 
 while True:
     op = menu_principal()
@@ -49,27 +24,68 @@ while True:
         while True:
             op_2 = menu_secundario()
             if op_2 == 1:
-                criar_cao()
+               caes.append (criar_cao())
+
             elif op_2 == 2:
-                ver_cao(caes)
+                listar_cao(caes)
+
             elif op_2 == 3:
                 ver_informacoes_cao(caes)
+
             elif op_2 == 4:
-                buscar_cao()
+             buscar_cao(caes)
+
             elif op_2 == 5:
+                while True:
+                    op_b = menu_brincar()
+                    if op_b == 1:
+                        jogar_bolinha(caes)
+
+                    elif op_b == 2:
+                        jogar_graveto(caes)
+
+                    elif op_b == 3:
+                        dar_um_osso(caes)
+
+                    elif op_b == 4:
+                        break
+
+            elif op_2 == 6:
                 break
 
     elif op == 2:
         while True:
             op_3 = menu_terciario()
             if op_3 == 1:
-                criar_pessoa()
+                personas.append (criar_pessoa())
+
             elif op_3 == 2:
-                ver_humano(personas)
+                listar_humano(personas)
+
             elif op_3 == 3:
                 ver_informacoes_humano(personas)
+
             elif op_3 == 4:
+                buscar_humano(personas)
+
+            elif op_3 == 5:
+                while True:
+                    op_a = menu_acoes()
+                    if op_a == 1:
+                        comer(personas)
+
+                    elif op_a == 2:
+                        beber_agua (personas)
+
+                    elif op_a == 3:
+                        ir_ao_banheiro (personas)
+
+                    elif op_a == 4:
+                        break
+
+            elif op_3 == 6:
                 break
+
 
     elif op == 3:
         break

@@ -20,24 +20,24 @@ class Humano(Animal):
     idade = 0
     cor = ''
     nacionalidade= ''
-    idioma= ''
+    altura= ''
     personas = []
 
-    def __init__ (self, nome, idade, cor, nacionalidade, idioma):
+    def __init__ (self, nome, idade, cor, nacionalidade, altura):
         self.nome=nome
         self.idade= idade
         self.cor=cor
         self.nacionalidade=nacionalidade
-        self.idioma=idioma
+        self.altura= altura
         self.coracao = True
         self.racional=True
  
     def pessoa(self):
         print(self.nome)
         print(self.idade)
-        print(self.raca)
+        print(self.cor)
         print(self.nacionalidade)
-        print(self.idioma)
+        print(self.altura)
 
 
 class Cachorro(Animal):
